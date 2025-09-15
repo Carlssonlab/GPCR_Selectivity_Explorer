@@ -1,48 +1,91 @@
-usage: GPCR_Selectivity_Explorer.py [-h] [-l1 LIST1 [LIST1 ...]] [-r1 REFERENCE1] [-l2 LIST2 [LIST2 ...]] [-r2 REFERENCE2] [-sg SEGMENTS [SEGMENTS ...]]
-                                    [-c CONSERVATION_CUTOFF] [-sb SUBSTITUTION_MATRIX_METHOD] [-o OUTPUTFOLDER] [--custom] [-r1f REFERENCE1_RESIDUES_TABLE]
-                                    [-r1A REFERENCE1_ALIGNMENT] [-r2f REFERENCE2_RESIDUES_TABLE] [-r2A REFERENCE2_ALIGNMENT]
+# GPCR Selectivity Explorer
 
+A command-line tool designed to analyze and compare amino acid conservation and selectivity between two groups of G-protein coupled receptors (GPCRs) based on data from GPCRdb.
 
-optional arguments:
-  -h, --help            show this help message and exit
-  -l1 LIST1 [LIST1 ...], --list1 LIST1 [LIST1 ...]
-                        Space-separated list for Reference 1 Receptor segments (e.g., adrb1_human adrb2_human adrb3_human)
-  -r1 REFERENCE1, --reference1 REFERENCE1
-                        Reference 1 Receptor Name in GPCRdb (e.g., adrb2_human)
-  -l2 LIST2 [LIST2 ...], --list2 LIST2 [LIST2 ...]
-                        Space-separated list for Reference 2 Receptor segments (e.g., drd1_human drd5_human)
-  -r2 REFERENCE2, --reference2 REFERENCE2
-                        Reference 2 Receptor Name in GPCRdb (e.g., drd1_human)
-  -sg SEGMENTS [SEGMENTS ...], --segments SEGMENTS [SEGMENTS ...]
-                        Segment information for reference receptor residues from GPCRdb (e.g., TM1 TM2 ECL2 ICL1)
-  -c CONSERVATION_CUTOFF, --conservation_cutoff CONSERVATION_CUTOFF
-                        Conservation Cutoff
-  -sb SUBSTITUTION_MATRIX_METHOD, --substitution_matrix_method SUBSTITUTION_MATRIX_METHOD
-                        Substitution matrix method. Options include: BENNER22, BENNER6, BENNER74, BLOSUM45, BLOSUM50, BLOSUM62, BLOSUM80, BLOSUM90, DAYHOFF, FENG,
-                        GENETIC, GONNET1992, HOXD70, JOHNSON, JONES, LEVIN, MCLACHLAN, MDM78, NUC.4.4, PAM250, PAM30, PAM70, RAO, RISLER, SCHNEIDER, STR, TRANS
-  -o OUTPUTFOLDER, --outputfolder OUTPUTFOLDER
-                        Output folder
-  --custom              use custom alginments and residue tables
-  -r1f REFERENCE1_RESIDUES_TABLE, --reference1_residues_table REFERENCE1_RESIDUES_TABLE
-                        Reference 1 modifed residues table excel file from GPCRdb
-  -r1A REFERENCE1_ALIGNMENT, --reference1_alignment REFERENCE1_ALIGNMENT
-                        Reference 1 modifed alignment excel file from GPCRdb
-  -r2f REFERENCE2_RESIDUES_TABLE, --reference2_residues_table REFERENCE2_RESIDUES_TABLE
-                        Reference 2 modifed residues table excel file from GPCRdb
-  -r2A REFERENCE2_ALIGNMENT, --reference2_alignment REFERENCE2_ALIGNMENT
-                        Reference 2 modifed alignment excel file from GPCRdb
+## Features
 
+*   Compare two user-defined lists of receptors.
+*   Focus analysis on specific structural segments (e.g., transmembrane helices, loops).
+*   Set a conservation cutoff to identify key residues.
+*   Utilize various substitution matrices (e.g., BLOSUM62, PAM250) for analysis.
+*   Supports custom, user-modified alignments and residue tables for advanced analysis.
 
-1- Example to run:
+## Requirements
 
+*   Python 3.x
+*   Required Python packages (e.g., pandas, biopython). You can typically install these via pip:
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-python GPCR_Selectivity_Explorer.py -l1 adrb1_human adrb2_human adrb3_human -r1 adrb2_human -l2 drd1_human drd5_human -r2 drd1_human -sg TM1 TM2 TM3 TM4 TM5 TM6 TM7 ECL2 -c 80 -sb BLOSUM62 -o outputs_default
+## Usage
 
-CUSTOM ALIGNMENTS:
+The script is run from the command line, providing arguments to define the receptor groups, analysis parameters, and output location.
 
-To use custom alignments. First, run GPCRs Selectivity Explorer and edit (remove/add sequences) the output alignment files for List A and List B. If you add new positions (e.g., the full ECL3), you must also update the reference residue table by adding the amino acid number(s) and its corresponding GPCRdb number(s) (e.g., E193 67x10). If no GPCRdb numbers exists for the new position(s), create GPCRdb number(s), ensure each number is unique and is not already assigned to another position. Finally, use the custom alignment and residue tables as inputs for the workflow.
+```bash
+python GPCR_Selectivity_Explorer.py [-h] [-l1 LIST1 [LIST1 ...]] [-r1 REFERENCE1] [-l2 LIST2 [LIST2 ...]] [-r2 REFERENCE2] [-sg SEGMENTS [SEGMENTS ...]] [-c CONSERVATION_CUTOFF] [-sb SUBSTITUTION_MATRIX_METHOD] [-o OUTPUTFOLDER] [--custom] [-r1f REFERENCE1_RESIDUES_TABLE] [-r1A REFERENCE1_ALIGNMENT] [-r2f REFERENCE2_RESIDUES_TABLE] [-r2A REFERENCE2_ALIGNMENT]
+```
 
+### Arguments
 
-Example to run using custom alignments:
+| Argument | Description |
+| :--- | :--- |
+| `-h`, `--help` | Show this help message and exit. |
+| `-l1`, `--list1` | Space-separated list for Reference 1 Receptor segments (e.g., `adrb1_human adrb2_human adrb3_human`). |
+| `-r1`, `--reference1` | Reference 1 Receptor Name in GPCRdb (e.g., `adrb2_human`). |
+| `-l2`, `--list2` | Space-separated list for Reference 2 Receptor segments (e.g., `drd1_human drd5_human`). |
+| `-r2`, `--reference2` | Reference 2 Receptor Name in GPCRdb (e.g., `drd1_human`). |
+| `-sg`, `--segments` | Segment information for reference receptor residues from GPCRdb (e.g., `TM1 TM2 ECL2 ICL1`). |
+| `-c`, `--conservation_cutoff` | Conservation Cutoff value (e.g., `80`). |
+| `-sb`, `--substitution_matrix_method` | Substitution matrix method. Options include: `BENNER22`, `BENNER6`, `BENNER74`, `BLOSUM45`, `BLOSUM50`, `BLOSUM62`, `BLOSUM80`, `BLOSUM90`, `DAYHOFF`, `FENG`, `GENETIC`, `GONNET1992`, `HOXD70`, `JOHNSON`, `JONES`, `LEVIN`, `MCLACHLAN`, `MDM78`, `NUC.4.4`, `PAM250`, `PAM30`, `PAM70`, `RAO`, `RISLER`, `SCHNEIDER`, `STR`, `TRANS`. |
+| `-o`, `--outputfolder` | The path to the output folder. |
+| `--custom` | A flag to indicate the use of custom alignments and residue tables. |
+| `-r1f`, `--reference1_residues_table` | Path to the Reference 1 modified residues table Excel file from GPCRdb. |
+| `-r1A`, `--reference1_alignment` | Path to the Reference 1 modified alignment Excel file from GPCRdb. |
+| `-r2f`, `--reference2_residues_table` | Path to the Reference 2 modified residues table Excel file from GPCRdb. |
+| `-r2A`, `--reference2_alignment` | Path to the Reference 2 modified alignment Excel file from GPCRdb. |
 
-python GPCR_Selectivity_Explorer.py -r1 adrb2_human   -r2 drd1_human  -c 80 -r1f  ../outputs_default/adrb2_human_GPCRdb_residues_table_full_seq.xlsx -r1A ../outputs_default/adrb2_human_GPCRdb_alignment.xlsx  -r2f  ../outputs_default/drd1_human_GPCRdb_residues_table_full_seq.xlsx  -r2A  ../outputs_default/drd1_human_GPCRdb_alignment.xlsx  --custom -o outputs_custom
+## Examples
+
+### 1. Standard Analysis
+
+This example compares a list of adrenergic receptors against a list of dopamine receptors, focusing on the transmembrane helices and ECL2. It uses a conservation cutoff of 80% and the BLOSUM62 matrix.
+
+```bash
+python GPCR_Selectivity_Explorer.py \
+-l1 adrb1_human adrb2_human adrb3_human \
+-r1 adrb2_human \
+-l2 drd1_human drd5_human \
+-r2 drd1_human \
+-sg TM1 TM2 TM3 TM4 TM5 TM6 TM7 ECL2 \
+-c 80 \
+-sb BLOSUM62 \
+-o outputs_default
+```
+
+### 2. Using Custom Alignments
+
+This example demonstrates how to use manually edited alignment and residue table files as input.
+
+**Workflow for Custom Alignments:**
+
+To use custom alignments, first run the tool in standard mode. Then, edit the output alignment files (`*_GPCRdb_alignment.xlsx`) for List 1 and List 2 by adding or removing sequences. If you add new positions (e.g., the full ECL3), you must also update the corresponding reference residue table (`*_GPCRdb_residues_table_full_seq.xlsx`) by adding the amino acid number and its GPCRdb number (e.g., `E193 67x10`). If a GPCRdb number does not exist for a new position, create a unique one that is not already assigned.
+
+Finally, use the custom alignment and residue tables as inputs for the workflow using the `--custom` flag.
+
+```bash
+python GPCR_Selectivity_Explorer.py \
+-r1 adrb2_human \
+-r2 drd1_human \
+-c 80 \
+-r1f ../outputs_default/adrb2_human_GPCRdb_residues_table_full_seq.xlsx \
+-r1A ../outputs_default/adrb2_human_GPCRdb_alignment.xlsx \
+-r2f ../outputs_default/drd1_human_GPCRdb_residues_table_full_seq.xlsx \
+-r2A ../outputs_default/drd1_human_GPCRdb_alignment.xlsx \
+--custom \
+-o outputs_custom
+```
+
+## License
+
+This project is licensed under the MIT License.
