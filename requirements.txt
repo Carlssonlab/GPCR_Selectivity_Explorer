@@ -1,0 +1,5 @@
+pandas
+requests
+biopython
+openpyxl
+pymol-open-source
