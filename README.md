@@ -14,9 +14,9 @@ A command-line tool designed to analyze and compare amino acid conservation and 
 
 *   Python 3.x
 *   Required Python packages (e.g., pandas, biopython). You can typically install these via pip:
-    ```bash
-    pip install -r requirements.txt
-    ```
+```bash
+pip install -r requirements.txt
+```
 
 ## System Requirements
 - Operating system: Linux, macOS, Windows
@@ -32,7 +32,7 @@ cd GPCR_Selectivity_Explorer
 python3 -m venv venv
 source venv/bin/activate   # or venv\Scripts\activate on Windows
 pip install -r requirements.txt
-
+```
 ## Usage
 
 The script is run from the command line, providing arguments to define the receptor groups, analysis parameters, and output location.
@@ -107,7 +107,8 @@ bash reproducibility/run_analysis.sh
 
 ## Citing this work
 If you use GPCR Selectivity Explorer in your research, please cite the following publication:
-[Kahlous NA, Rinne M, Zhang X, Li Y, Chen Y, Motso A, Gao K, Bergqvist C, Shen H, Wang Y, Díaz-Holguín A, Bengtsson T, Lauschke VM, Kukkonen JP, Delemotte L, Wright SC, Liu X, Larhammar D, Carlsson J], “[Molecular mechanisms of ligand selectivity by catecholamine G protein-coupled receptors],” Nature communications, 2025, Volume(Issue), Pages.  DOI: [Paper DOI]
+
+Kahlous NA, Rinne M, Zhang X, Li Y, Chen Y, Motso A, Gao K, Bergqvist C, Shen H, Wang Y, Díaz-Holguín A, Bengtsson T, Lauschke VM, Kukkonen JP, Delemotte L, Wright SC, Liu X, Larhammar D, Carlsson J, “[Molecular mechanisms of ligand selectivity by catecholamine G protein-coupled receptors],” Nature communications, 2025, Volume(Issue), Pages.  DOI: [Paper DOI]
 
 ## License
 
