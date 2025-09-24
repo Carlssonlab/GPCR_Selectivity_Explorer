@@ -18,7 +18,7 @@ This is a command-line version of server version running at https://carlssonlabt
 - Python: 3.8+
 - Memory: ≥ 4 GB RAM recommended
 - Disk: ~500 MB free space
-- Required Python packages (e.g., pandas, biopython).
+- Required Python packages (pandas, biopython, requests, openpyxl, pymol-open-source).
 
 
 ## Installation
