@@ -109,16 +109,16 @@ python GPCR_Selectivity_Explorer.py \
 -r1 adrb2_human \
 -r2 drd1_human \
 -c 80 \
--r1f ../outputs_default/adrb2_human_GPCRdb_residues_table_full_seq.xlsx \
--r1A ../outputs_default/adrb2_human_GPCRdb_alignment.xlsx \
--r2f ../outputs_default/drd1_human_GPCRdb_residues_table_full_seq.xlsx \
--r2A ../outputs_default/drd1_human_GPCRdb_alignment.xlsx \
+-r1f outputs_default/adrb2_human_GPCRdb_residues_table_full_seq.xlsx \
+-r1A outputs_default/adrb2_human_GPCRdb_alignment.xlsx \
+-r2f outputs_default/drd1_human_GPCRdb_residues_table_full_seq.xlsx \
+-r2A outputs_default/drd1_human_GPCRdb_alignment.xlsx \
 --custom \
 -o outputs_custom
 ```
 
 ## Reproducibility
-To reproduce the results described in work cited below, run:
+To reproduce the results of β adrenergic and dopamine D1-like receptors described in work, you can run:
 ```bash
 cd GPCR_Selectivity_Explorer/ADRBs_D1R-like_analysis_repreducability
 bash run_analysis.sh
