@@ -18,14 +18,11 @@ This a command-line version of server version running at https://carlssonlabtool
 - Python: 3.8+
 - Memory: ≥ 4 GB RAM recommended
 - Disk: ~500 MB free space
-- Required Python packages (e.g., pandas, biopython). You can typically install these via pip:
+- Required Python packages (e.g., pandas, biopython).
 
-```bash
-pip install -r requirements.txt
-```
 
 ## Installation
-Clone the repository and install dependencies:
+Clone the repository and install dependencies, it may takes a few minutes:
 ```bash
 git clone https://github.com/yourusername/GPCR_Selectivity_Explorer.git
 cd GPCR_Selectivity_Explorer
@@ -80,7 +77,7 @@ The PDB files include additional annotations encoded in the B-factor field:
 
 ### 1. Standard Analysis
 
-This example compares a list of adrenergic receptors against a list of dopamine receptors, focusing on the transmembrane helices and ECL2. It uses a conservation cutoff of 80% and the BLOSUM62 matrix.
+This example compares a list of adrenergic receptors against a list of dopamine receptors, focusing on the transmembrane helices and ECL2. It uses a conservation cutoff of 80% and the BLOSUM62 matrix, the run time is about few minutes.
 
 ```bash
 python GPCR_Selectivity_Explorer.py \
