@@ -2,7 +2,7 @@
 
 A command-line tool designed to analyze and compare amino acid conservation and selectivity between two groups of G-protein coupled receptors (GPCRs) based on data from GPCRdb.
 
-This a command-line version of server version running at https://carlssonlabtools.icm.uu.se/GPCR_Selectivity_Explorer
+This is a command-line version of server version running at https://carlssonlabtools.icm.uu.se/GPCR_Selectivity_Explorer
 
 ## Features
 
