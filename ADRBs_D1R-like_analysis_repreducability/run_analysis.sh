@@ -1,0 +1,1 @@
+python  ../GPCR_Selectivity_Explorer.py  -r1 adrb2_human   -r2 drd1_human  -c 80 -r1f  residue_table_b2ar.xlsx -r1A ADRBs_05102022_ready.xlsx  -r2f  residue_table_drd1.xlsx  -r2A  DRD1-like_05102022_ready.xlsx  --custom -o outputs_custom

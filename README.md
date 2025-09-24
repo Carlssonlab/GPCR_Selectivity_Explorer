@@ -12,7 +12,7 @@ A command-line tool designed to analyze and compare amino acid conservation and 
 
 ## Requirements
 
-*   Python 3.x
+*   Python 3.8+
 *   Required Python packages (e.g., pandas, biopython). You can typically install these via pip:
 ```bash
 pip install -r requirements.txt
@@ -102,8 +102,11 @@ python GPCR_Selectivity_Explorer.py \
 ```
 
 ## Reproducibility
-To reproduce the results described in [Your Manuscript], run:
-bash reproducibility/run_analysis.sh
+To reproduce the results described in work cited below, run:
+```bash
+cd GPCR_Selectivity_Explorer/ADRBs_D1R-like_analysis_repreducability
+bash run_analysis.sh
+```
 
 ## Citing this work
 If you use GPCR Selectivity Explorer in your research, please cite the following publication:

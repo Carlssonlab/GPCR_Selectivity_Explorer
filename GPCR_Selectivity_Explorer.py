@@ -1125,6 +1125,15 @@ def main():
 
     args = parser.parse_args()
     if __name__ == "__main__":
+        
+        
+        # Convert input files and output folder to absolute paths
+        args.reference1_alignment = os.path.abspath(args.reference1_alignment) if args.reference1_alignment else None
+        args.reference2_alignment = os.path.abspath(args.reference2_alignment) if args.reference2_alignment else None
+        args.reference1_residues_table = os.path.abspath(args.reference1_residues_table) if args.reference1_residues_table else None
+        args.reference2_residues_table = os.path.abspath(args.reference2_residues_table) if args.reference2_residues_table else None
+        args.outputfolder = os.path.abspath(args.outputfolder)
+
 
         with change_dir(args.outputfolder):
             if not args.custom:
