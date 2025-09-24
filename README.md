@@ -64,9 +64,11 @@ python GPCR_Selectivity_Explorer.py [-h] [-l1 LIST1 [LIST1 ...]] [-r1 REFERENCE1
 ### Outputs
 
 - Sequence alignments, mutagenesis files, and residue numbering tables are provided in Excel format (.xlsx).
-- 3D receptor structures are delivered as PDB files (.pdb), along with a ready-to-use PyMOL visualization session (.pse). The PDB files include additional annotations encoded in the B-factor field:
-- GPCRdb numbering is stored in the PDBs B-factor field of the C atoms in the backbone.
-- Consensus conservation values are stored in the PDBs B-factor field of the N atoms in the backbone.
+- 3D receptor structures are delivered as PDB files (.pdb), along with a ready-to-use PyMOL visualization session (.pse).
+
+The PDB files include additional annotations encoded in the B-factor field:
+- GPCRdb numbering is stored in the B-factor field of the C atoms in the backbone.
+- Consensus conservation values are stored in the B-factor field of the N atoms in the backbone.
 - BLOSUM-based substitution classification is encoded in the B-factor field of the Cα atoms in the backbone using the following scheme:
     - Conservative substitution, above conservation cutoff in one receptor → B-factor = 12.5 (cyan in PyMOL)
     - Conservative substitution, above conservation cutoff in both receptors → B-factor = 25 (dark blue in PyMOL)
