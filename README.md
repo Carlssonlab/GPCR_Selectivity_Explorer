@@ -2,6 +2,8 @@
 
 A command-line tool designed to analyze and compare amino acid conservation and selectivity between two groups of G-protein coupled receptors (GPCRs) based on data from GPCRdb.
 
+This a command-line version of server version running at https://carlssonlabtools.icm.uu.se/GPCR_Selectivity_Explorer
+
 ## Features
 
 *   Compare two user-defined lists of receptors.
@@ -10,19 +12,17 @@ A command-line tool designed to analyze and compare amino acid conservation and 
 *   Utilize various substitution matrices (e.g., BLOSUM62, PAM250) for analysis.
 *   Supports custom, user-modified alignments and residue tables for advanced analysis.
 
+
 ## Requirements
-
-*   Python 3.8+
-*   Required Python packages (e.g., pandas, biopython). You can typically install these via pip:
-```bash
-pip install -r requirements.txt
-```
-
-## System Requirements
 - Operating system: Linux, macOS, Windows
 - Python: 3.8+
 - Memory: ≥ 4 GB RAM recommended
 - Disk: ~500 MB free space
+- Required Python packages (e.g., pandas, biopython). You can typically install these via pip:
+
+```bash
+pip install -r requirements.txt
+```
 
 ## Installation
 Clone the repository and install dependencies:
@@ -59,6 +59,20 @@ python GPCR_Selectivity_Explorer.py [-h] [-l1 LIST1 [LIST1 ...]] [-r1 REFERENCE1
 | `-r1A`, `--reference1_alignment` | Path to the Reference 1 modified alignment Excel file from GPCRdb. |
 | `-r2f`, `--reference2_residues_table` | Path to the Reference 2 modified residues table Excel file from GPCRdb. |
 | `-r2A`, `--reference2_alignment` | Path to the Reference 2 modified alignment Excel file from GPCRdb. |
+
+
+### Outputs
+
+- Sequence alignments, mutagenesis files, and residue numbering tables are provided in Excel format (.xlsx).
+- 3D receptor structures are delivered as PDB files (.pdb), along with a ready-to-use PyMOL visualization session (.pse). The PDB files include additional annotations encoded in the B-factor field:
+- GPCRdb numbering is stored in the PDBs B-factor field of the C atoms in the backbone.
+- Consensus conservation values are stored in the PDBs B-factor field of the N atoms in the backbone.
+- BLOSUM-based substitution classification is encoded in the B-factor field of the Cα atoms in the backbone using the following scheme:
+    - Conservative substitution, above conservation cutoff in one receptor → B-factor = 12.5 (cyan in PyMOL)
+    - Conservative substitution, above conservation cutoff in both receptors → B-factor = 25 (dark blue in PyMOL)
+    - Non-conservative substitution, above conservation cutoff in one receptor → B-factor = 50 (orange in PyMOL)
+    - Non-conservative substitution, above conservation cutoff in both receptors → B-factor = 100 (red in PyMOL)
+
 
 ## Examples
 
