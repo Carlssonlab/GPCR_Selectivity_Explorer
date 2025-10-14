@@ -23,7 +23,7 @@ This is a command-line version of server version running at https://carlssonlabt
 
 ## Installation
 
-1- Install Miniconda:
+1- Install miniconda:
 
 ```bash
 # --- For Linux ---
