@@ -36,14 +36,14 @@ bash Miniconda3-latest-Linux-x86_64.sh
 
 # Initialize Conda
 source ~/.bashrc  # or 'source ~/.zshrc' depending on your shell
-
+```
 2- Code installation:
 
 Clone the repository and install dependencies, it may takes a few minutes:
 ```bash
 git clone https://github.com/Carlssonlab/GPCR_Selectivity_Explorer.git
 cd GPCR_Selectivity_Explorer
-
+```
 # Create a conda environment named 'venv' with Python 3.10
 conda create -n venv python=3.10 -y
 
@@ -61,7 +61,7 @@ The script is run from the command line, providing arguments to define the recep
 
 ```bash
 python GPCR_Selectivity_Explorer.py [-h] [-l1 LIST1 [LIST1 ...]] [-r1 REFERENCE1] [-l2 LIST2 [LIST2 ...]] [-r2 REFERENCE2] [-sg SEGMENTS [SEGMENTS ...]] [-c CONSERVATION_CUTOFF] [-sb SUBSTITUTION_MATRIX_METHOD] [-o OUTPUTFOLDER] [--custom] [-r1f REFERENCE1_RESIDUES_TABLE] [-r1A REFERENCE1_ALIGNMENT] [-r2f REFERENCE2_RESIDUES_TABLE] [-r2A REFERENCE2_ALIGNMENT]
-
+```
 
 ### Arguments
 
