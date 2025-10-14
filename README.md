@@ -42,19 +42,21 @@ source ~/.bashrc  # or 'source ~/.zshrc' depending on your shell
 Clone the repository and install dependencies, it may takes a few minutes:
 ```bash
 git clone https://github.com/Carlssonlab/GPCR_Selectivity_Explorer.git
-cd GPCR_Selectivity_Explorer
-```
-# Create a conda environment named 'venv' with Python 3.10
-conda create -n venv python=3.10 -y
 
-# Activate the environment
-conda activate venv
+cd GPCR_Selectivity_Explorer
+
+# Create a conda environment named 'venv' with Python 3.10
+conda create -n venv python=3.9 -y
+
+# Activate the environment 
+conda activate venv 
 
 # Install dependencies listed in requirements.txt
-pip install -r requirements.txt
+pip install -r requirements.txt 
 
 # Install PyMOL separately (not available on PyPI)
-conda install -c conda-forge pymol-open-source -y
+conda install -c conda-forge pymol-open-source -y 
+```
 ## Usage
 
 The script is run from the command line, providing arguments to define the receptor groups, analysis parameters, and output location.
