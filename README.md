@@ -61,7 +61,7 @@ The script is run from the command line, providing arguments to define the recep
 
 ```bash
 python GPCR_Selectivity_Explorer.py [-h] [-l1 LIST1 [LIST1 ...]] [-r1 REFERENCE1] [-l2 LIST2 [LIST2 ...]] [-r2 REFERENCE2] [-sg SEGMENTS [SEGMENTS ...]] [-c CONSERVATION_CUTOFF] [-sb SUBSTITUTION_MATRIX_METHOD] [-o OUTPUTFOLDER] [--custom] [-r1f REFERENCE1_RESIDUES_TABLE] [-r1A REFERENCE1_ALIGNMENT] [-r2f REFERENCE2_RESIDUES_TABLE] [-r2A REFERENCE2_ALIGNMENT]
-```
+
 
 ### Arguments
 
