@@ -31,8 +31,8 @@ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 bash Miniconda3-latest-Linux-x86_64.sh
 
 # --- For macOS ---
-# wget https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
-# bash Miniconda3-latest-MacOSX-x86_64.sh
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
+bash Miniconda3-latest-MacOSX-x86_64.sh
 
 # Initialize Conda
 source ~/.bashrc  # or 'source ~/.zshrc' depending on your shell
@@ -45,7 +45,7 @@ git clone https://github.com/Carlssonlab/GPCR_Selectivity_Explorer.git
 
 cd GPCR_Selectivity_Explorer
 
-# Create a conda environment named 'venv' with Python 3.10
+# Create a conda environment named 'venv' with Python 3.9
 conda create -n venv python=3.9 -y
 
 # Activate the environment 
