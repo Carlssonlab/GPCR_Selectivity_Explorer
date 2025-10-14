@@ -438,7 +438,6 @@ def process_alignment(df_with_consensus: pd.DataFrame, ref: str) -> tuple[pd.Dat
             # Select relevant columns from reference residues table
             df_ref_resides_table = df2[['GPCRdb(A)', f"{ref}_AA-seq"]]
             df_ref_resides_table.to_excel(f"{ref}_GPCRdb_residues_table_full_seq.xlsx")
-           # print(df_ref_resides_table.head)
             # Filter out invalid GPCRdb positions
             df_ref_resides_table = df_ref_resides_table[df_ref_resides_table['GPCRdb(A)'] != 'NonexNone']
 
@@ -701,7 +700,7 @@ def coexistence(rec: str, residue: str, cutoff: float) -> list:
         A list of nearby residues in the format 'residue name and number', e.g., ['ASP45', 'GLY46'].
     """
     try:
-        logging.info("Starting coexistence function for receptor: %s, residue: %s, cutoff: %.2f", rec, residue, cutoff)
+        #logging.info("Starting coexistence function for receptor: %s, residue: %s, cutoff: %.2f", rec, residue, cutoff)
         
         # Initialize list to store selected residues
         stored.selected_residues = []
@@ -720,7 +719,7 @@ def coexistence(rec: str, residue: str, cutoff: float) -> list:
         
         # Reinitialize to clean up the session
         cmd.reinitialize()
-        logging.info("Session reinitialized, selected residues stored")
+        #logging.info("Session reinitialized, selected residues stored")
 
         return stored.selected_residues
 
@@ -893,27 +892,25 @@ def PDB_read_and_edit_noconsensus_coexistence2(
                             AA_target_coexistence_list_indexes.append(AA_index_target[0])  
 
                     
-                    logging.info("|11111| %s (%s) -> %s (%s)", AA_ref, AA_ref_consensus_value, AA_target, AA_target_consensus_value)
+                    #logging.info("|11111| %s (%s) -> %s (%s)", AA_ref, AA_ref_consensus_value, AA_target, AA_target_consensus_value)
 
                 elif AA_ref_consensus_value >= conservation_cutoff or AA_target_consensus_value >= conservation_cutoff:
                     if AA_ref_consensus_value >= conservation_cutoff and AA_ref[0] == AA_ref_consensus[0]:
                         structure_ref[0]['A'][int(AA_ref[1:])]["CA"].bfactor = 50
                         df_ref_target_consensus_with_residues_numbering.loc[AA_no, f"{ref}_to_{target}"] = AA_ref + AA_target[0]
                         df_ref_target_consensus_with_residues_numbering.loc[AA_no, f"{ref}_to_color_{target}"]= 'orange'
-                       # mutations_ref_to_target.append(AA_ref + 'to' + AA_target)
                         AA_ref_coexistence_list=coexistence(structure_r,AA_ref[1:],dist_cutoff)
                         for AA in AA_ref_coexistence_list:
                             AA_index_ref=df_ref_target_consensus_with_residues_numbering.index[df_ref_target_consensus_with_residues_numbering[df_ref_target_consensus_with_residues_numbering.columns[4]]== rename_AA(AA[:3])+AA[3:]]                
                             if len(AA_index_ref)!=0:
                                 AA_ref_coexistence_list_indexes.append(AA_index_ref[0])  
-                        logging.info("|22222| %s (%s)", AA_ref, AA_ref_consensus_value)
+                        #logging.info("|22222| %s (%s)", AA_ref, AA_ref_consensus_value)
 
                     if AA_target_consensus_value >= conservation_cutoff and AA_target[0] == AA_target_consensus[0]:
                         structure_target[0]['A'][int(AA_target[1:])]["CA"].bfactor = 50
                         row[f"{ref}_to_{target}"] = AA_ref + AA_target[0]
                         df_ref_target_consensus_with_residues_numbering.loc[AA_no, f"{target}_to_{ref}"] = AA_target + AA_ref[0]
                         df_ref_target_consensus_with_residues_numbering.loc[AA_no, f"{target}_to_color_{ref}"]= 'orange'
-                        #mutations_target_to_ref.append(AA_target + 'to' + AA_ref)
                         AA_target_coexistence_list=coexistence(structure_t,AA_target[1:],dist_cutoff)
                         for AA in AA_target_coexistence_list:
                             AA_index_target=df_ref_target_consensus_with_residues_numbering.index[df_ref_target_consensus_with_residues_numbering[df_ref_target_consensus_with_residues_numbering.columns[8]]== rename_AA(AA[:3])+AA[3:]]
@@ -957,8 +954,6 @@ def PDB_read_and_edit_noconsensus_coexistence2(
             AAtargetconsensus_value=float(df_ref_target_consensus_with_residues_numbering.iloc[AA_no,df_ref_target_consensus_with_residues_numbering.columns.get_loc('Seq consensus value '+ target)])
             
             if AArefconsensus_value >=conservation_cutoff  and AAtargetconsensus_value >=conservation_cutoff:
-                #if AA_ref_consensus!=AA_target_consensus and AA_ref[0] !=AA_target[0]: ### maybe not needed
-                #print("|coexatnce 25|",AA_ref,AArefconsensus_value,AA_ref_consensus,AA_target,AAtargetconsensus_value,AA_target_consensus)
                 if  AA_ref[0] !=AA_target[0]:
                     structure_ref[0]['A'][int(AA_ref[1:])]["CA"].bfactor=25
                     structure_target[0]['A'][int(AA_target[1:])]["CA"].bfactor=25
@@ -968,8 +963,6 @@ def PDB_read_and_edit_noconsensus_coexistence2(
                     df_ref_target_consensus_with_residues_numbering.loc[AA_no, f"{target}_to_color_{ref}"]='blue'
                     
             elif AArefconsensus_value >=conservation_cutoff  or AAtargetconsensus_value >=conservation_cutoff:
-                #if AA_ref_consensus!=AA_target_consensus and AA_ref[0] !=AA_target[0]: ### maybe not needed
-                #print("|coexatnce 12.5|",AA_ref,AArefconsensus_value,AA_ref_consensus,AA_target,AAtargetconsensus_value,AA_target_consensus)
                 if  AA_ref[0] !=AA_target[0]:
                     if AArefconsensus_value >=conservation_cutoff:
                         structure_ref[0]['A'][int(AA_ref[1:])]["CA"].bfactor=12.5
@@ -980,8 +973,6 @@ def PDB_read_and_edit_noconsensus_coexistence2(
                         df_ref_target_consensus_with_residues_numbering.loc[AA_no, f"{ref}_to_{target}"] = AA_ref + AA_target[0]
                         df_ref_target_consensus_with_residues_numbering.loc[AA_no, f"{target}_to_color_{ref}"]='cyan'
                         
-        #df_ref_target_consensus_with_residues_numbering[(df_ref_target_consensus_with_residues_numbering[ref +"_to_"+ target] !="Same" ) & (df_ref_target_consensus_with_residues_numbering[ref +"_to_"+ target] != "Inconclusive")]
-
         io = PDBIO()
         io.set_structure(structure_ref)
         io.save(f"{ref}_{conservation_cutoff}_{substitution_matrix_method}.pdb")
@@ -995,44 +986,6 @@ def PDB_read_and_edit_noconsensus_coexistence2(
 
     except Exception as e:
         logging.error("Error occurred in PDB_read_and_edit_noconsensus_coexistence2: %s", e)
-
-
-# def change_colors_from_df(svg_file, df, name_column='name', color_column='color'):
-#     # Parse the SVG file
-#     tree = ET.parse(svg_file)
-#     root = tree.getroot()
-
-#     # Define the SVG namespace
-#     ns = {'svg': 'http://www.w3.org/2000/svg'}
-
-#     # Create a dictionary mapping residue names to colors
-#     residue_color_map = dict(zip(df[name_column], df[color_column]))
-
-#     # Initialize a flag to check if any residue is found
-#     residue_found = False
-
-#     # Find all circle elements with class 'rcircle' and update their fill attribute
-#     circle_elements = root.findall('.//svg:circle', namespaces=ns)
-
-#     for circle in circle_elements:
-#         original_title = circle.get('original_title')
-#         residue_name = original_title.split()[0]  # Extract residue name from original_title
-        
-#         if residue_name in residue_color_map:
-#             # Found matching residue ID, update the fill attribute
-#             circle.set('fill', residue_color_map[residue_name])
-#             residue_found = True
-
-#     # Print a message if no residues are found
-#     if not residue_found:
-#         print("No residues from the DataFrame found in the SVG file.")
-
-#     # Write back to the SVG file without namespace prefixes
-#     ET.register_namespace('', 'http://www.w3.org/2000/svg')
-#     tree.write(svg_file[:-4]+"_marked.svg", encoding='utf-8', xml_declaration=True, method='xml', short_empty_elements=True)
-
-#     return
-
 
 def make_pymol_session(pdb1: str, pdb2: str, output_session: str) -> None:
     """
@@ -1142,7 +1095,6 @@ def main():
                 
                 df_with_consensus_r1.to_excel(f"{args.reference1}_GPCRdb_alignment.xlsx")
                 df_with_consensus_r2.to_excel(f"{args.reference2}_GPCRdb_alignment.xlsx")
-                #print(df_with_consensus_r1.head)
                 
                 df_resides_tabel_r1, df_consensus_with_residues_numbering_r1= process_alignment(df_with_consensus_r1,args.reference1)
                 df_resides_tabel_r1.to_excel(f"{args.reference1}_GPCRdb_residues_table.xlsx")
