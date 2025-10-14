@@ -21,7 +21,9 @@ This is a command-line version of server version running at https://carlssonlabt
 - Conda or Miniconda
 - Required Python packages (pandas, biopython, requests, openpyxl, pymol-open-source).
 
-## Install Miniconda
+## Installation
+
+1- Install Miniconda:
 
 ```bash
 # --- For Linux ---
@@ -35,7 +37,8 @@ bash Miniconda3-latest-Linux-x86_64.sh
 # Initialize Conda
 source ~/.bashrc  # or 'source ~/.zshrc' depending on your shell
 
-## Installation
+2- Code installation:
+
 Clone the repository and install dependencies, it may takes a few minutes:
 ```bash
 git clone https://github.com/Carlssonlab/GPCR_Selectivity_Explorer.git
