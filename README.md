@@ -144,7 +144,7 @@ python GPCR_Selectivity_Explorer.py \
 ## Reproducibility
 To reproduce the results of β adrenergic and dopamine D1-like receptors described in work, you can run:
 ```bash
-cd GPCR_Selectivity_Explorer/ADRBs_D1R-like_analysis_repreducability
+cd GPCR_Selectivity_Explorer/ADRBs_D1R-like_analysis_reproducibility
 bash run_analysis.sh
 ```
 
