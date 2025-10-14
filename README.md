@@ -24,7 +24,7 @@ This is a command-line version of server version running at https://carlssonlabt
 ## Installation
 Clone the repository and install dependencies, it may takes a few minutes:
 ```bash
-git clone https://github.com/yourusername/GPCR_Selectivity_Explorer.git
+git clone https://github.com/Carlssonlab/GPCR_Selectivity_Explorer.git
 cd GPCR_Selectivity_Explorer
 python3 -m venv venv
 source venv/bin/activate   # or venv\Scripts\activate on Windows
