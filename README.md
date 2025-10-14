@@ -38,8 +38,6 @@ bash Miniconda3-latest-MacOSX-x86_64.sh
 source ~/.bashrc  # or 'source ~/.zshrc' depending on your shell
 
 # --- For Windows ---
-
-Download and install Miniconda for Windows from the official site:
 https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe
 
 # During installation:
@@ -48,7 +46,7 @@ https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe
 
     - Check “Register Miniconda as the system’s default Python”.
 
-After installation, open the “Anaconda Prompt” (or a regular Command Prompt if added to PATH) and run the following command:
+# After installation, open the “Anaconda Prompt” (or a regular Command Prompt if added to PATH) and run the following command:
 
 conda init
 ```
