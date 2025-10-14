@@ -18,18 +18,40 @@ This is a command-line version of server version running at https://carlssonlabt
 - Python: 3.8+
 - Memory: ≥ 4 GB RAM recommended
 - Disk: ~500 MB free space
+- Conda or Miniconda
 - Required Python packages (pandas, biopython, requests, openpyxl, pymol-open-source).
 
+## Install Miniconda
+
+```bash
+# --- For Linux ---
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+bash Miniconda3-latest-Linux-x86_64.sh
+
+# --- For macOS ---
+# wget https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
+# bash Miniconda3-latest-MacOSX-x86_64.sh
+
+# Initialize Conda
+source ~/.bashrc  # or 'source ~/.zshrc' depending on your shell
 
 ## Installation
 Clone the repository and install dependencies, it may takes a few minutes:
 ```bash
 git clone https://github.com/Carlssonlab/GPCR_Selectivity_Explorer.git
 cd GPCR_Selectivity_Explorer
-python3 -m venv venv
-source venv/bin/activate   # or venv\Scripts\activate on Windows
+
+# Create a conda environment named 'venv' with Python 3.10
+conda create -n venv python=3.10 -y
+
+# Activate the environment
+conda activate venv
+
+# Install dependencies listed in requirements.txt
 pip install -r requirements.txt
-```
+
+# Install PyMOL separately (not available on PyPI)
+conda install -c conda-forge pymol-open-source -y
 ## Usage
 
 The script is run from the command line, providing arguments to define the receptor groups, analysis parameters, and output location.
