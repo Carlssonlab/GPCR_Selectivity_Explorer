@@ -165,7 +165,7 @@ bash run_analysis.sh
 ## Citing this work
 If you use GPCR Selectivity Explorer in your research, please cite the following publication:
 
-Kahlous NA, Rinne M, Zhang X, Li Y, Chen Y, Motso A, Gao K, Bergqvist C, Shen H, Wang Y, De Vaca I, Díaz-Holguín A, Ullmann P, Bengtsson T, Lauschke VM, Kukkonen JP, Delemotte L, Wright SC, Liu X, Larhammar D, Carlsson J, “[Molecular mechanisms of ligand selectivity by catecholamine G protein-coupled receptors],” Nature communications, 2025, Volume(Issue), Pages.  DOI: [Paper DOI]
+Kahlous NA, Rinne M, Zhang X, Li Y, Chen Y, Motso A, Gao K, Bergqvist C, Shen H, Wang Y, Cabeza De Vaca I, Díaz-Holguín A, Ullmann P, Bengtsson T, Lauschke VM, Kukkonen JP, Delemotte L, Wright SC, Liu X, Larhammar D, Carlsson J, “[Molecular mechanisms of ligand selectivity by catecholamine G protein-coupled receptors],” Nature communications, 2025, Volume(Issue), Pages.  DOI: [Paper DOI]
 
 ## License
 
