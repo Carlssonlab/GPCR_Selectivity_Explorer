@@ -2,7 +2,7 @@
 
 A command-line tool designed to analyze and compare amino acid conservation and selectivity between two groups of G-protein coupled receptors (GPCRs) based on data from GPCRdb.
 
-This is a command-line version of server version running at https://carlssonlabtools.icm.uu.se/GPCR_Selectivity_Explorer
+This is a command-line version of the server version running at https://carlssonlabtools.icm.uu.se/GPCR_Selectivity_Explorer
 
 ## Features
 
@@ -52,7 +52,7 @@ conda init
 ```
 2- Code installation:
 
-Clone the repository and install dependencies, it may takes a few minutes:
+Clone the repository and install dependencies; it may take a few minutes:
 ```bash
 git clone https://github.com/Carlssonlab/GPCR_Selectivity_Explorer.git
 
@@ -117,7 +117,7 @@ The PDB files include additional annotations encoded in the B-factor field:
 
 ### 1. Standard Analysis
 
-This example compares a list of adrenergic receptors against a list of dopamine receptors, focusing on the transmembrane helices and ECL2. It uses a conservation cutoff of 80% and the BLOSUM62 matrix, the run time is about few minutes.
+This example compares a list of adrenergic receptors against a list of dopamine receptors, focusing on the transmembrane helices and ECL2. It uses a conservation cutoff of 80% and the BLOSUM62 matrix; the run time is about a few minutes.
 
 ```bash
 python GPCR_Selectivity_Explorer.py \
@@ -155,9 +155,9 @@ python GPCR_Selectivity_Explorer.py \
 ```
 
 ## Reproducibility
-To reproduce the results of β adrenergic and dopamine D1-like receptors described in work, you can run:
+To reproduce the results of β-adrenergic and dopamine D1-like receptors described in the work, you can run:
 ```bash
-# Change directory to the folder containing the inputfiles used in our study:
+# Change directory to the folder containing the input files used in our study:
 cd GPCR_Selectivity_Explorer/ADRBs_D1R-like_analysis_reproducibility
 bash run_analysis.sh
 ```
@@ -165,7 +165,7 @@ bash run_analysis.sh
 ## Citing this work
 If you use GPCR Selectivity Explorer in your research, please cite the following publication:
 
-Kahlous NA, Rinne M, Zhang X, Li Y, Chen Y, Motso A, Gao K, Bergqvist C, Shen H, Wang Y, Cabeza De Vaca I, Díaz-Holguín A, Ullmann P, Bengtsson T, Lauschke VM, Kukkonen JP, Delemotte L, Wright SC, Liu X, Larhammar D, Carlsson J, “[Molecular mechanisms of ligand selectivity by catecholamine G protein-coupled receptors],” Nature communications, 2025, Volume(Issue), Pages.  DOI: [Paper DOI]
+Kahlous NA, Rinne M, Zhang X, Li Y, Chen Y, Motso A, Gao K, Bergqvist C, Shen H, Wang Y, Cabeza De Vaca I, Díaz-Holguín A, Ullmann P, Bengtsson T, Lauschke VM, Kukkonen JP, Delemotte L, Wright SC, Liu X, Larhammar D, Carlsson J, “[Molecular mechanisms of ligand selectivity by catecholamine G protein-coupled receptors],” Nature Communications, 2025, Volume(Issue), Pages.  DOI: [Paper DOI]
 
 ## License
 
