@@ -1004,8 +1004,8 @@ def make_pymol_session(pdb1: str, pdb2: str, output_session: str) -> None:
 
     try:
         # Load the two PDB files
-        prot1 = pdb1.split("_")[0]
-        prot2 = pdb2.split("_")[0]
+        prot1 = pdb1
+        prot2 = pdb2
         
         cmd.load(pdb1, prot1)
         cmd.load(pdb2, prot2)
