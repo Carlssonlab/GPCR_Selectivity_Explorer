@@ -1003,7 +1003,7 @@ def make_pymol_session(pdb1: str, pdb2: str, output_session: str) -> None:
     logging.info("Starting PyMOL session creation with %s and %s", pdb1, pdb2)
 
     try:
-        # Load the two PDB files
+        # Load the two PDB files from AlphaFold
         prot1 = pdb1
         prot2 = pdb2
         
