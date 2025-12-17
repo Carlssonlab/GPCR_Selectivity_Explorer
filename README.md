@@ -14,7 +14,7 @@ This is a command-line version of the server version running at https://carlsson
 
 
 ## Requirements
-- Operating system: Linux, macOS, Windows
+- Operating system: Linux, macOS
 - Python: 3.8+
 - Memory: ≥ 4 GB RAM recommended
 - Disk: ~500 MB free space
@@ -37,18 +37,6 @@ bash Miniconda3-latest-MacOSX-x86_64.sh
 # Initialize Conda
 source ~/.bashrc  # or 'source ~/.zshrc' depending on your shell
 
-# --- For Windows ---
-https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe
-
-# During installation:
-
-    - Check “Add Miniconda to my PATH environment variable” (optional but convenient).
-
-    - Check “Register Miniconda as the system’s default Python”.
-
-# After installation, open the “Anaconda Prompt” (or a regular Command Prompt if added to PATH) and run the following command:
-
-conda init
 ```
 2- Code installation:
 
