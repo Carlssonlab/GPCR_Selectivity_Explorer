@@ -1,6 +1,6 @@
 # GPCR Selectivity Explorer
 
-A command-line tool designed to analyze and compare amino acid conservation and selectivity between two groups of G-protein coupled receptors (GPCRs) based on data from GPCRdb.
+GPCR Selectivity Explorer is a command-line tool designed for identifying amino acid positions that determine differences in pharmacological properties between G protein-coupled receptors (e.g., ligand or G protein preference). By leveraging multispecies structure-based sequence alignments and predicted three-dimensional structures of target GPCRs, conserved residues that differ between receptors are automatically identified. The results can be integrated with experimental data to facilitate understanding of the molecular determinants of ligand recognition and activation. GPCR Selectivity Explorer can be used to design receptor mutants and support the rational design of selective ligands.
 
 This is a command-line version of the server version running at https://carlssonlabtools.icm.uu.se/GPCR_Selectivity_Explorer
 
